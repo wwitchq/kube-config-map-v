@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+  namespace: sirius
+data:
+  nginx.conf: |
+    events {}
+    http {
+      server {
+        listen 80;
+
+        location /api {
+          proxy_pass http://appapi:7001;
+        }
+
+        location /info {
+          proxy_pass http://appinfo:7023;
+        }
+
+        location /login {
+          proxy_pass http://applogin:7058;
+        }
+      }
+    }

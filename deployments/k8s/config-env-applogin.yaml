@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: applogin-config
+  namespace: sirius
+data:
+  APP_NAME: "Login Service"
+  LOG_LEVEL: "warning"
+  BIND_PORT: "7058"
